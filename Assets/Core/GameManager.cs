@@ -4,14 +4,11 @@ namespace Core
 {
     public class GameManager : MonoBehaviour
     {
-        private const int START_HUMANS_VALUE = 10;
-        private const int START_FOOD_VALUE = 5;
-        private const int START_WOOD_VALUE = 5;
 
         private ResourceBank _resourceBank;
 
         private void Awake()
-          => _resourceBank = new ResourceBank(START_HUMANS_VALUE, START_FOOD_VALUE, START_WOOD_VALUE);
+          => _resourceBank = new ResourceBank(10, 5, 5, 0, 0);
 
         public ResourceBank GetResourceBank()
           => _resourceBank;

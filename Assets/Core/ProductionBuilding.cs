@@ -22,14 +22,15 @@ namespace Core
         [SerializeField]
         private GameManager _manager;
 
-        // It is not optimal, single-responsibility is disrupted
         [SerializeField] private SliderAnimation _sliderAnimation;
         public Action<float> OnProductionTimeChanged { get; set; }
         private ResourceBank _bank;
         private bool _inProduction;
 
         public ObservableInt GetProductionLevel()
-          => _productionLevel;
+        {
+            return _productionLevel;
+        }
 
         private void Start()
         {
@@ -42,7 +43,9 @@ namespace Core
         private const float DECREASING_TIME_SPEED = 6f;
 
         private void CalculateProductionTime()
-          => _productionTime = START_PRODUCTION_TIME * Mathf.Exp(-_productionLevel.Value / DECREASING_TIME_SPEED);
+        {
+            _productionTime = START_PRODUCTION_TIME * Mathf.Exp(-_productionLevel.Value / DECREASING_TIME_SPEED);
+        }
 
         public void IncreaseProductionLevel()
         {
@@ -53,7 +56,7 @@ namespace Core
 
         public void StartProduction()
         {
-            if (_inProduction is false)
+            if (!_inProduction)
                 StartCoroutine(FinishProduction());
         }
 
