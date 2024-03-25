@@ -6,28 +6,30 @@ using Core;
 
 namespace Presentation
 {
-  [Serializable]
-  public class ResourceVisual : MonoBehaviour
-  {
-    [SerializeField] private GameManager _gameManager;
-    [SerializeField] private List<TMP_Text> _texts;
-
-    private void Start()
+    [Serializable]
+    public class ResourceVisual : MonoBehaviour
     {
-      ResourceBank resourceBank = _gameManager.GetResourceBank();
-      var allResources = (GameResource[])Enum.GetValues(typeof(GameResource));
-      for (int i = 0; i < allResources.Length; ++i)
-      {
-        int I = i;
-        resourceBank.GetResource(allResources[i]).OnValue += newValue => UpdateResourceVisual(I, newValue);
+        [SerializeField] private GameManager _manager;
+        [SerializeField] private List<TMP_Text> _resourceTexts;
 
-        UpdateResourceVisual(I, resourceBank.GetResource(allResources[i]).Value);
-      }
-    }
-
-        private void UpdateResourceVisual(int t, int val)
+        private void Start()
         {
-            _texts[t].text = val.ToString();
+            ResourceBank resourceBank = _manager.GetResourceBank();
+            // Get all resources from GameResource
+            var allResources = (GameResource[])Enum.GetValues(typeof(GameResource));
+
+            // Assigning resource visual update to all resources
+            for (int i = 0; i < allResources.Length; i++)
+            {
+                int copyI = i;
+                resourceBank.GetResource(allResources[i]).OnValueChanged +=
+                  newValue => UpdateResourceVisual(copyI, newValue);
+
+                UpdateResourceVisual(copyI, resourceBank.GetResource(allResources[i]).Value);
+            }
         }
-  }
+
+        private void UpdateResourceVisual(int textIndex, int newValue)
+          => _resourceTexts[textIndex].text = newValue.ToString();
+    }
 }

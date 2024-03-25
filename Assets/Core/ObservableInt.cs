@@ -1,26 +1,24 @@
 namespace Core
 {
-  public class ObservableInt
-  {
-    private int _v;
-    public System.Action<int> OnValue;
-
-    public int Value
+    public class ObservableInt
     {
-      get
-      {
-       return _v;
-      }
-      set
-      {
-        OnValue?.Invoke(value);
-        _v = value;
-      }
-    }
+        private int _value;
+        public System.Action<int> OnValueChanged;
 
-    public ObservableInt(int v)
-    {
-      _v = v;
+        public int Value
+        {
+            get => _value;
+            set
+            {
+                OnValueChanged?.Invoke(value);
+                _value = value;
+            }
+        }
+
+
+        public ObservableInt(int value)
+        {
+            _value = value;
+        }
     }
-  }
 }
