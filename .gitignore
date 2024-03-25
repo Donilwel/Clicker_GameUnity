@@ -1,0 +1,25 @@
+# Unity specific
+Library/
+Temp/
+Obj/
+Logs/
+Builds/
+*.csproj
+*.pidb
+*.userprefs
+*.apk
+*.unitypackage
+*.DS_Store
+
+# Visual Studio Code specific
+.vscode/
+
+# Rider specific
+.idea/
+*.sln.iml
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
