@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{5225350D-D245-2181-101F-48E8DAB5B58D}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Core/GameManager.cs">
+    <Files>
+      <File FileName="Assets/Core/GameManager.cs" Line="16" Column="11" />
+      <File FileName="Assets/Core/ButtonSound.cs" />
+      <File FileName="Assets/Core/GameResource.cs" />
+      <File FileName="Assets/Core/ObservableInt.cs" />
+      <File FileName="Assets/Core/ProductionBuilding.cs" />
+      <File FileName="Assets/Core/ProductionVisual.cs" />
+      <File FileName="Assets/Core/ResourceBank.cs" />
+      <File FileName="Assets/Core/ResourceVisual.cs" />
+      <File FileName="Assets/Core/SellPosition.cs" />
+      <File FileName="Assets/Core/ShopManager.cs" />
+      <File FileName="Assets/Core/SliderAnimation.cs" Line="31" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Unity_NeDoGames" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Core" expanded="True">
+                <Node name="GameManager.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c4106cac-0d96-47c8-a0bd-b7bb3ab07630" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
