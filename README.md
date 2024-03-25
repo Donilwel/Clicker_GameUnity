@@ -46,3 +46,6 @@ TextMeshProUGUI Text.
 Добавить на сцену панель магазина, где при нажатии на соответствующие кнопки можно увеличить уровень производства каждого ресурса. 
 
 Модифицировать ProductionBuilding так, чтобы скорость производства ресурса зависела от уровня производства, например WoodProdTime = ProductionTime*(1-WoodProdLvl.value/100)
+<img width="819" alt="Снимок экрана 2024-03-25 в 05 15 57" src="https://github.com/Donilwel/Unity_NeDoGames/assets/134236921/f7ad6b19-7c8a-40fa-ac0d-77ebb49cc144">
+
+
