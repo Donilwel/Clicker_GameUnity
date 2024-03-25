@@ -7,8 +7,7 @@ namespace Core
 {
     public class ProductionBuilding : MonoBehaviour
     {
-        private const float START_PRODUCTION_TIME = 3;
-        private float _productionTime = START_PRODUCTION_TIME;
+        private float _productionTime = 3;
         private readonly ObservableInt _productionLevel = new(0);
 
         [Header("Production Settings")]
@@ -23,7 +22,11 @@ namespace Core
         private GameManager _manager;
 
         [SerializeField] private SliderAnimation _sliderAnimation;
-        public Action<float> OnProductionTimeChanged { get; set; }
+        public Action<float> OnProductionTimeChanged
+        {
+            get;
+            set;
+        }
         private ResourceBank _bank;
         private bool _inProduction;
 
@@ -39,12 +42,11 @@ namespace Core
             CalculateProductionTime();
         }
 
-        // calculate time: time = time * e^(-level/6)
         private const float DECREASING_TIME_SPEED = 6f;
 
         private void CalculateProductionTime()
         {
-            _productionTime = START_PRODUCTION_TIME * Mathf.Exp(-_productionLevel.Value / DECREASING_TIME_SPEED);
+            _productionTime = 3 * Mathf.Exp(-_productionLevel.Value / DECREASING_TIME_SPEED);
         }
 
         public void IncreaseProductionLevel()

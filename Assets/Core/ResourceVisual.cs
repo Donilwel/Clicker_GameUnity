@@ -14,22 +14,21 @@ namespace Presentation
 
         private void Start()
         {
-            ResourceBank resourceBank = _manager.GetResourceBank();
-            // Get all resources from GameResource
-            var allResources = (GameResource[])Enum.GetValues(typeof(GameResource));
+            ResourceBank rb = _manager.GetResourceBank();
+            var resourses = (GameResource[])Enum.GetValues(typeof(GameResource));
 
-            // Assigning resource visual update to all resources
-            for (int i = 0; i < allResources.Length; i++)
+            for (int i = 0; i < resourses.Length; ++i)
             {
                 int copyI = i;
-                resourceBank.GetResource(allResources[i]).OnValueChanged +=
-                  newValue => UpdateResourceVisual(copyI, newValue);
+                rb.GetResource(resourses[i]).OnValueChanged += newValue => UpdateResourceVisual(copyI, newValue);
 
-                UpdateResourceVisual(copyI, resourceBank.GetResource(allResources[i]).Value);
+                UpdateResourceVisual(copyI, rb.GetResource(resourses[i]).Value);
             }
         }
 
         private void UpdateResourceVisual(int textIndex, int newValue)
-          => _resourceTexts[textIndex].text = newValue.ToString();
+        {
+            _resourceTexts[textIndex].text = newValue.ToString();
+        }
     }
 }

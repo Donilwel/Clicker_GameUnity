@@ -6,17 +6,19 @@ namespace Core
     {
         [SerializeField] private GameManager _manager;
         [SerializeField] private ProductionBuilding[] _productionBuildings;
-        private ResourceBank _bank;
+        private ResourceBank bankomat;
 
         private void Start()
-          => _bank = _manager.GetResourceBank();
+        {
+            bankomat = _manager.GetResourceBank();
+        }
 
         public void BuyProductionLevel(SellPosition position)
         {
-            if (_bank.GetResource(position.Currency).Value >= position.Cost)
+            if (bankomat.GetResource(position.Currency).Value >= position.Cost)
             {
                 _productionBuildings[(int)position.TargetProduction].IncreaseProductionLevel();
-                _bank.ChangeResource(position.Currency, -position.Cost);
+                bankomat.ChangeResource(position.Currency, -position.Cost);
             }
             else
             {

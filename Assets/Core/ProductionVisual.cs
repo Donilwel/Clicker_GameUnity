@@ -12,12 +12,10 @@ namespace Presentation
 
         private void Start()
         {
-            for (int i = 0; i < _buildings.Count; i++)
+            for (int i = 0; i < _buildings.Count; ++i)
             {
-                int i1 = i;
-                _buildings[i].GetProductionLevel().OnValueChanged += (newValue =>
-                  _productionTexts[i1].text = newValue.ToString());
-
+                int j = i;
+                _buildings[i].GetProductionLevel().OnValueChanged += (newValue => _productionTexts[j].text = newValue.ToString());
                 _buildings[i].GetProductionLevel().OnValueChanged.Invoke(_buildings[i].GetProductionLevel().Value);
             }
         }

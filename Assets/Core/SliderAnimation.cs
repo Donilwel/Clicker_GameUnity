@@ -17,28 +17,28 @@ namespace Presentation
             _fillDuration = newDuration;
         }
 
-        private bool _isAnimating;
+        private bool checker;
 
         public void StartAnimation()
         {
-            if (_isAnimating is false)
+            if (!checker)
                 StartCoroutine(LerpSliderValue());
         }
 
         private IEnumerator LerpSliderValue()
         {
-            _isAnimating = true;
-            float elapsedTime = 0f;
+            checker = true;
+            float timer = 0f;
 
-            while (elapsedTime < _fillDuration)
+            while (timer < _fillDuration)
             {
-                elapsedTime += Time.deltaTime;
-                _slider.value = _statusCurve.Evaluate(elapsedTime / _fillDuration);
+                timer += Time.deltaTime;
+                _slider.value = _statusCurve.Evaluate(timer / _fillDuration);
                 yield return null;
             }
 
             _slider.value = 0f;
-            _isAnimating = false;
+            checker = false;
         }
     }
 }
